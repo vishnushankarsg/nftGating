@@ -1,12 +1,10 @@
 import {useNavigate,useLocation} from "react-router-dom"
-import { useEffect } from "react"
 import './Home.css'
+import ReactPlayer from 'react-player'
 const Home=()=>{
     const location = useLocation()
     const navigateTo=useNavigate()
-    useEffect(()=>{
-      revealMsg();
-    },[])
+
     const revealMsg=async()=>{
         try{
            const account = location.state.address;
@@ -20,12 +18,25 @@ const Home=()=>{
            const data = await res.json();
            if(data.status===200){
              navigateTo("/members")
-           }else{
-             navigateTo("/trials")
            }
         }catch(error){
            console.error(error)
         }
     }
+
+    return(
+      <>
+          <span>Trial of Javascript course</span>
+      <br></br>
+      <ReactPlayer
+        className='react-player fixed-bottom'
+        url= 'https://vimeo.com/865915617'
+        width='640px'
+        height='480px'
+        controls = {true}
+        />
+          <button onClick={revealMsg}>GetStarted to FullCourse</button>
+      </>
+      )
  }
  export default Home;

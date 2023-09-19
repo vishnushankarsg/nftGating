@@ -35,18 +35,6 @@ app.post('/members',async(req,res)=>{
     }
 })
 
-app.post('/webhook',async(req,res)=>{
-  try{
-    const account = req.body[0].from;
-    const numNFTs = await fetchNFTs(account);
-    io.emit('nftsUpdated',{userNFTs:numNFTs.userNFTs})
-    res.status(200).json({status:200,message:"Webhook Triggered"})
-  }catch(error){
-    console.error(error)
-  }
-})
-
-
 const PORT=5173;
 const server = app.listen(PORT,()=>{
     console.log(`Sever running at ${PORT}`)
