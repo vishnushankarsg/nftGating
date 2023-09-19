@@ -18,17 +18,11 @@ const Home=()=>{
               body:JSON.stringify({from:account})
            })
            const data = await res.json();
-           const user = await window.ethereum.request({method:'eth_requestAccounts'})
-           if(user){
-            if(data.status===200){
-              navigateTo("/members")
-            }else{
-              navigateTo("/trials")
-            }
+           if(data.status===200){
+             navigateTo("/members")
            }else{
-            navigateTo("/")
+             navigateTo("/trials")
            }
-           
         }catch(error){
            console.error(error)
         }
