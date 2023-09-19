@@ -7,7 +7,7 @@ const Members=()=>{
     const navigateTo = useNavigate();
 
     useEffect(()=>{
-      const socketInstance = io('http://localhost:3030');
+      const socketInstance = io('http://3.29.24.130:5173');
       setSocket(socketInstance);
 
       return()=>{
