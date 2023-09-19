@@ -10,7 +10,7 @@ const Home=()=>{
     const revealMsg=async()=>{
         try{
            const account = location.state.address;
-           const res = await fetch(`http://localhost:3030/members`,{
+           const res = await fetch(`http://172.31.1.53:3030/members`,{
               method:"POST",
               headers:{
                 "content-type":"application/json"

@@ -48,9 +48,10 @@ app.post('/webhook',async(req,res)=>{
 
 
 const PORT=3030;
-const server = app.listen(PORT,()=>{
+const server = app.listen(PORT, "172.31.1.53",()=>{
     console.log(`Sever running at ${PORT}`)
 })
+console.log(server)
 const io = socketIO(server);
 io.on('connection',()=>{
   console.log("Connected")
