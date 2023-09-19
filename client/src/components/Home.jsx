@@ -35,6 +35,8 @@ const Home=()=>{
         height='480px'
         controls = {true}
         />
+        <br></br>
+        <br></br>
           <button onClick={revealMsg}>GetStarted to FullCourse</button>
       </>
       )
